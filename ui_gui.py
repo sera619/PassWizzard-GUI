@@ -31,7 +31,7 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QSize(0, 0))
         MainWindow.setMaximumSize(QSize(620, 340))
         MainWindow.setMouseTracking(True)
-        MainWindow.setWindowOpacity(0.920000000000000)
+        MainWindow.setWindowOpacity(0.930000000000000)
         MainWindow.setStyleSheet(u"*{\n"
 "border:none;\n"
 "border-radius:25px;\n"

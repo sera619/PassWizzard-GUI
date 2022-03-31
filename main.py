@@ -14,7 +14,7 @@ from styles import *
 from PassManager import  PasswordManager
 
 
-version = "0.9.2"
+version = "1.0.1"
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -22,10 +22,10 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         apply_stylesheet(app, theme='dark_red.xml')
+        self.setWindowIcon(QIcon('triple-lock.png'))
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.setWindowTitle('P455W1ZZ4RD')
-        self.setWindowIcon(QIcon('triple-lock.png'))
         self.ui.footer_label.setText('P455W1ZZ4RD Version ' + version+' | by S3R43o3')
         
         #self.showMaximized()
@@ -86,12 +86,10 @@ class MainWindow(QMainWindow):
                     self.clickPosition = globalPos
 
         self.ui.header_frame.mouseMoveEvent = moveWindow
+        self.initCheck()
 
 
-
-    def keyErrorBox(self,s):
-        print('click ', s)
-        
+    def keyErrorBox(self):        
         box = NoKeyDialog(self)
         if box.exec():
             self.ui.stackWidget.setCurrentWidget(self.ui.createKeys_site)
@@ -100,7 +98,11 @@ class MainWindow(QMainWindow):
     
     
         
-    
+    def initCheck(self):
+        saved_keys = os.listdir('data/keys')
+        saved_files = os.listdir('data/files')
+        if saved_keys == [] or saved_files == []:
+            self.keyErrorBox()
     
     
     
@@ -133,15 +135,8 @@ class MainWindow(QMainWindow):
         PM.loadPassFile(self.ui.select_file.currentText()[:sizePass-5])
         PM.addPassword(str(self.ui.new_pass_name.text()),str(self.ui.new_pass_password.text()))
         self.ui.addpass_info_label.setText('Success! Password added!')
-        """
-        self.password_dic[site] = passwor
-        if self.password_file is not None:
-            with open(self.password_file, 'a+') as f:
-                encrypted = Fernet(self.key).encrypt(password.encode())
-                f.write(site + ":" + str(encrypted.decode()) + "\n")
-                print("Success! New password saved!\n")
-                f.close()
-            """        
+        
+        
     def getPass(self):
         sizeKey = len(str(self.ui.get_key_input.currentText()))
         sizePass = len(str(self.ui.get_file_input.currentText())) 
