@@ -2,7 +2,7 @@
 from cx_Freeze import setup, Executable
 import sys, os
 
-files = ['favicon.ico','main.py']
+files = ['favicon.ico','triple-lock.png']
 option = {
     'include_files': files,
     'optimize':2,
