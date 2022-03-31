@@ -1,3 +1,5 @@
 /data/*
-./qt_for_pyton/
+./qt_for_pyton/*
 /gui-passwizz
+/passwizz-gui
+/build
