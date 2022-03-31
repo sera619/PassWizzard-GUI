@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'gui.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.3
+## Created by: Qt User Interface Compiler version 6.2.4
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -170,26 +170,14 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.min_btn, 0, Qt.AlignRight)
 
-        self.max_btn = QPushButton(self.window_btn_container)
-        self.max_btn.setObjectName(u"max_btn")
-        sizePolicy1.setHeightForWidth(self.max_btn.sizePolicy().hasHeightForWidth())
-        self.max_btn.setSizePolicy(sizePolicy1)
-        self.max_btn.setFocusPolicy(Qt.StrongFocus)
-        icon2 = QIcon()
-        icon2.addFile(u":/icons/assets/icons/minimize-2.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.max_btn.setIcon(icon2)
-        self.max_btn.setIconSize(QSize(18, 18))
-
-        self.horizontalLayout_3.addWidget(self.max_btn, 0, Qt.AlignRight|Qt.AlignVCenter)
-
         self.x_btn = QPushButton(self.window_btn_container)
         self.x_btn.setObjectName(u"x_btn")
         sizePolicy1.setHeightForWidth(self.x_btn.sizePolicy().hasHeightForWidth())
         self.x_btn.setSizePolicy(sizePolicy1)
         self.x_btn.setStyleSheet(u"")
-        icon3 = QIcon()
-        icon3.addFile(u":/icons/assets/icons/x.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.x_btn.setIcon(icon3)
+        icon2 = QIcon()
+        icon2.addFile(u":/icons/assets/icons/x.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.x_btn.setIcon(icon2)
         self.x_btn.setIconSize(QSize(18, 18))
 
         self.horizontalLayout_3.addWidget(self.x_btn, 0, Qt.AlignRight)
@@ -237,36 +225,36 @@ class Ui_MainWindow(object):
         font3.setBold(False)
         font3.setItalic(False)
         self.key_btn.setFont(font3)
-        icon4 = QIcon()
-        icon4.addFile(u":/icons/assets/icons/key.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.key_btn.setIcon(icon4)
+        icon3 = QIcon()
+        icon3.addFile(u":/icons/assets/icons/key.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.key_btn.setIcon(icon3)
         self.key_btn.setIconSize(QSize(22, 22))
 
         self.verticalLayout_6.addWidget(self.key_btn, 0, Qt.AlignLeft)
 
         self.files_btn = QPushButton(self.frame_5)
         self.files_btn.setObjectName(u"files_btn")
-        icon5 = QIcon()
-        icon5.addFile(u":/icons/assets/icons/folder.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.files_btn.setIcon(icon5)
+        icon4 = QIcon()
+        icon4.addFile(u":/icons/assets/icons/folder.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.files_btn.setIcon(icon4)
         self.files_btn.setIconSize(QSize(22, 22))
 
         self.verticalLayout_6.addWidget(self.files_btn, 0, Qt.AlignLeft)
 
         self.getpass_btn = QPushButton(self.frame_5)
         self.getpass_btn.setObjectName(u"getpass_btn")
-        icon6 = QIcon()
-        icon6.addFile(u":/icons/assets/icons/unlock.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.getpass_btn.setIcon(icon6)
+        icon5 = QIcon()
+        icon5.addFile(u":/icons/assets/icons/unlock.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.getpass_btn.setIcon(icon5)
         self.getpass_btn.setIconSize(QSize(22, 22))
 
         self.verticalLayout_6.addWidget(self.getpass_btn, 0, Qt.AlignLeft)
 
         self.pass_btn = QPushButton(self.frame_5)
         self.pass_btn.setObjectName(u"pass_btn")
-        icon7 = QIcon()
-        icon7.addFile(u":/icons/assets/icons/plus-square.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pass_btn.setIcon(icon7)
+        icon6 = QIcon()
+        icon6.addFile(u":/icons/assets/icons/plus-square.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pass_btn.setIcon(icon6)
         self.pass_btn.setIconSize(QSize(22, 22))
 
         self.verticalLayout_6.addWidget(self.pass_btn, 0, Qt.AlignLeft)
@@ -274,9 +262,9 @@ class Ui_MainWindow(object):
         self.info_btn = QPushButton(self.frame_5)
         self.info_btn.setObjectName(u"info_btn")
         self.info_btn.setStyleSheet(u"border-radius:25px;")
-        icon8 = QIcon()
-        icon8.addFile(u":/icons/assets/icons/info.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.info_btn.setIcon(icon8)
+        icon7 = QIcon()
+        icon7.addFile(u":/icons/assets/icons/info.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.info_btn.setIcon(icon7)
         self.info_btn.setIconSize(QSize(22, 22))
 
         self.verticalLayout_6.addWidget(self.info_btn, 0, Qt.AlignLeft)
@@ -314,7 +302,7 @@ class Ui_MainWindow(object):
         self.frame_2.setFrameShape(QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.verticalLayout_7 = QVBoxLayout(self.frame_2)
-        self.verticalLayout_7.setSpacing(0)
+        self.verticalLayout_7.setSpacing(4)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.label = QLabel(self.frame_2)
@@ -636,9 +624,9 @@ class Ui_MainWindow(object):
 "	border-color: rgb(224, 27, 36);\n"
 "padding: 1px 2px;\n"
 "}")
-        icon9 = QIcon()
-        icon9.addFile(u":/icons/assets/icons/youtube.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.yt_btn.setIcon(icon9)
+        icon8 = QIcon()
+        icon8.addFile(u":/icons/assets/icons/youtube.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.yt_btn.setIcon(icon8)
         self.yt_btn.setIconSize(QSize(28, 22))
 
         self.gridLayout.addWidget(self.yt_btn, 2, 2, 1, 1, Qt.AlignRight)
@@ -653,9 +641,9 @@ class Ui_MainWindow(object):
 "	border-color: rgb(224, 27, 36);\n"
 "padding: 1px 2px;\n"
 "}")
-        icon10 = QIcon()
-        icon10.addFile(u":/icons/assets/icons/github.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.git_btn.setIcon(icon10)
+        icon9 = QIcon()
+        icon9.addFile(u":/icons/assets/icons/github.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.git_btn.setIcon(icon9)
         self.git_btn.setIconSize(QSize(28, 22))
 
         self.gridLayout.addWidget(self.git_btn, 1, 0, 1, 1)
@@ -676,9 +664,9 @@ class Ui_MainWindow(object):
 "	border-color: rgb(224, 27, 36);\n"
 "padding: 1px 2px;\n"
 "}")
-        icon11 = QIcon()
-        icon11.addFile(u":/icons/assets/icons/codepen.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.codepen_btn.setIcon(icon11)
+        icon10 = QIcon()
+        icon10.addFile(u":/icons/assets/icons/codepen.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.codepen_btn.setIcon(icon10)
         self.codepen_btn.setIconSize(QSize(28, 22))
 
         self.gridLayout.addWidget(self.codepen_btn, 2, 0, 1, 1)
@@ -705,9 +693,9 @@ class Ui_MainWindow(object):
 "	border-color: rgb(224, 27, 36);\n"
 "padding: 1px 2px;\n"
 "}")
-        icon12 = QIcon()
-        icon12.addFile(u":/icons/assets/icons/book-open.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.hackzor_btn.setIcon(icon12)
+        icon11 = QIcon()
+        icon11.addFile(u":/icons/assets/icons/book-open.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.hackzor_btn.setIcon(icon11)
         self.hackzor_btn.setIconSize(QSize(28, 22))
 
         self.gridLayout.addWidget(self.hackzor_btn, 1, 2, 1, 1)
@@ -877,7 +865,6 @@ class Ui_MainWindow(object):
         self.menu_btn.setText(QCoreApplication.translate("MainWindow", u"Menu", None))
         self.r_title_label.setText(QCoreApplication.translate("MainWindow", u"PASSWIZZARD", None))
         self.min_btn.setText("")
-        self.max_btn.setText("")
         self.x_btn.setText("")
         self.key_btn.setText(QCoreApplication.translate("MainWindow", u"Keys", None))
         self.files_btn.setText(QCoreApplication.translate("MainWindow", u"Passfiles", None))

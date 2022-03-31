@@ -10,7 +10,9 @@ from PySide6.QtWidgets import *
 from ui_gui import Ui_MainWindow
 from qt_material import apply_stylesheet
 from PySide6 import *
-import styles
+from styles import *
+from PassManager import  PasswordManager
+
 
 version = "0.9.2"
 
@@ -43,7 +45,7 @@ class MainWindow(QMainWindow):
 
         # button events
         self.ui.min_btn.clicked.connect(lambda: self.showMinimized())
-        #self.ui.max_btn.clicked.connect(lambda: self.restoreWindow())
+        self.ui.max_btn.clicked.connect(lambda: self.keyErrorBox('nokey'))
         self.ui.x_btn.clicked.connect(lambda: self.close())
         self.ui.menu_btn.clicked.connect(lambda: self.menuAnim())
         # sociel button events
@@ -74,17 +76,34 @@ class MainWindow(QMainWindow):
 
         for w in self.ui.frame_5.findChildren(QPushButton):
             w.font().setFamily('JABBA-THE-FONT.REGULAR.TTF')
-            w.setStyleSheet(styles.Styles.MENUBUTTON)
+            w.setStyleSheet(Styles.MENUBUTTON)
 
         def moveWindow(e):
             if self.isMaximized() == False: 
                 if e.buttons() == Qt.LeftButton:
-                    self.move(self.pos() + e.globalPos() - self.clickPosition)
-                    self.clickPosition = e.globalPos()
-                    e.accept()
+                    globalPos = e.globalPos() 
+                    self.move(self.pos() + globalPos - self.clickPosition)
+                    self.clickPosition = globalPos
 
         self.ui.header_frame.mouseMoveEvent = moveWindow
 
+
+
+    def keyErrorBox(self,s):
+        print('click ', s)
+        
+        box = NoKeyDialog(self)
+        if box.exec():
+            self.ui.stackWidget.setCurrentWidget(self.ui.createKeys_site)
+        else:
+            sys.exit(app.exec())    
+    
+    
+        
+    
+    
+    
+    
     def create_keyBox_item(self, obj):
         self.ui.get_key_input.clear()
         self.ui.files_key_input.clear()
@@ -218,101 +237,10 @@ class MainWindow(QMainWindow):
     def applyButtonStyle(self):
         for i in self.ui.menu_frame.findChildren(QPushButton):
             if i.objectName() != self.sender().objectName():
-                i.setStyleSheet(styles.Styles.MENUBUTTON)
+                i.setStyleSheet(Styles.MENUBUTTON)
                 i.font().setFamily('JABBA-THE-FONT.REGULAR.TTF')
 
 
-
-class PasswordManager:
-    def __init__(self):
-        self.key = None
-        self.password_file = None
-        self.password_dic = {}
-
-        self.fistRun = True
-        self.keySelected = False
-        self.pathKey = None
-        self.pathSelected = False
-        self.pathFile = None
-
-    def createKey(self, path):
-        self.key = Fernet.generate_key()
-        path = 'data/keys/'+path+'.key'
-        with open(path, 'wb') as f:
-            f.write(self.key)
-            f.close()
-        print('Success! New Passwordkey created\n')
-
-    def loadKey(self, path):
-        self.pathKey = path
-        path = 'data/keys/'+path+'.key'
-        with open(path, 'rb') as f:
-            self.key = f.read()
-            self.keySelected = True
-            f.close()
-
-    def createPassFile(self, path, initial_values=None):
-        # with open(path, 'w') as f:
-        path = 'data/files/'+path+'.pass'
-        self.password_file = path
-        if initial_values is not None:
-            for key, values in initial_values.items():
-                self.addPassword(key, values)
-        print('Success! New Passwordfile created\n')
-
-    def loadPassFile(self, path):
-        self.pathFile = path
-        path = 'data/files/'+path+'.pass'
-        self.password_file = path
-        with open(path, 'r') as f:
-            for line in f:
-                site, encrypted = line.split(":")
-                self.password_dic[site] = Fernet(
-                    self.key).decrypt(encrypted.encode()).decode()
-            self.pathSelected = True
-            f.close()
-
-    def addPassword(self, site, password):
-        self.password_dic[site] = password
-        if self.password_file is not None:
-            with open(self.password_file, 'a+') as f:
-                encrypted = Fernet(self.key).encrypt(password.encode())
-                f.write(site + ":" + str(encrypted.decode()) + "\n")
-                print("Success! New password saved!\n")
-                f.close()
-
-    def getPassword(self,site):
-        return str(self.password_dic[site])
-    
-
-
-    def errMsg(self):
-        print('Invalid Option! Please enter a valid Option!')
-
-    def infoPrint(self):
-        if self.keySelected:
-            print("\nSelected Key: "f"{self.pathKey}\n")
-        if self.pathSelected:
-            print("\nSelected Passfile: "f"{self.pathFile}\n")
-
-    def resetSelection(self):
-        self.keySelected = False
-        self.pathKey = None
-        self.pathSelected = False
-        self.pathFile = None
-
-    def initPassmanager(self, fileDir, keyDir):
-        print('>>> P455 W1ZZ4RD started.\n>>> System: initialize relevant data ...')
-        sleep(1.5)
-        if not os.path.exists('data'):
-            print('>>> System: No Savedirectorys found! Create dat directory...')
-            os.mkdir('data/')
-        if not os.path.exists('data/'+fileDir):
-            print('>>> System: No '+fileDir+' dir. Create one...')
-            os.mkdir('data/'+fileDir)
-        if not os.path.exists('data/'+keyDir):
-            print('>>> System: No '+keyDir+' dir. Create one...')
-            os.mkdir('data/'+keyDir)
 
 
 PM = PasswordManager()

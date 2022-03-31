@@ -394,32 +394,6 @@ font: 700 italic 30pt &quot;Jabba the Font&quot;;
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignRight|Qt::AlignVCenter">
-           <widget class="QPushButton" name="max_btn">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="resource.qrc">
-              <normaloff>:/icons/assets/icons/minimize-2.png</normaloff>:/icons/assets/icons/minimize-2.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>18</width>
-              <height>18</height>
-             </size>
-            </property>
-           </widget>
-          </item>
           <item alignment="Qt::AlignRight">
            <widget class="QPushButton" name="x_btn">
             <property name="sizePolicy">
@@ -721,7 +695,7 @@ font: 700 italic 30pt &quot;Jabba the Font&quot;;
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_7">
                  <property name="spacing">
-                  <number>0</number>
+                  <number>4</number>
                  </property>
                  <property name="leftMargin">
                   <number>0</number>
