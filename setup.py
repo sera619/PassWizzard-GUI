@@ -15,7 +15,7 @@ target = Executable(script='main.py',
                     copyright='Copyright (c) 2022, S3R43o3',
                     shortcut_name='P455W1ZZ4RD')
 
-setup(name="P455 W1ZZ4RD",
+setup(name="P455W1ZZ4RD",
       version='1.0.1',
       description="A simple password manager",
       author="S3R43o3",
