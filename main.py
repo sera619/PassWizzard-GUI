@@ -26,7 +26,7 @@ class MainWindow(QMainWindow):
         self.setWindowIcon(QIcon('triple-lock.png'))
         self.ui.footer_label.setText('P455W1ZZ4RD Version ' + version+' | by S3R43o3')
         
-        self.showMaximized()
+        #self.showMaximized()
         
         self.shadow = QGraphicsDropShadowEffect(self)
         self.shadow.setBlurRadius(50)
@@ -43,7 +43,7 @@ class MainWindow(QMainWindow):
 
         # button events
         self.ui.min_btn.clicked.connect(lambda: self.showMinimized())
-        self.ui.max_btn.clicked.connect(lambda: self.restoreWindow())
+        #self.ui.max_btn.clicked.connect(lambda: self.restoreWindow())
         self.ui.x_btn.clicked.connect(lambda: self.close())
         self.ui.menu_btn.clicked.connect(lambda: self.menuAnim())
         # sociel button events
@@ -135,6 +135,7 @@ class MainWindow(QMainWindow):
             self.ui.pass_output_label.setText(str(PM.getPassword(self.ui.get_account_input.text())))
         else:
             self.ui.pass_output_label.setText('Please enter an account name!')
+        self.ui.get_account_input.clear()
     
     def createNewKey(self, keyname):
         saved_keys = os.listdir('data/keys')
@@ -152,6 +153,7 @@ class MainWindow(QMainWindow):
         saved_files = os.listdir('data/files')
         if filename in saved_files:
             self.ui.create_file_label.setText('File already exists!')
+            self.ui.passname_input.setText('')
         else:
             size = len(str(self.ui.files_key_input.currentText()))
             PM.loadKey(self.ui.files_key_input.currentText()[:size-4])
@@ -174,6 +176,7 @@ class MainWindow(QMainWindow):
         self.ui.filesList.clear()
         self.ui.filesList.setRowCount(0)        
         saved_files =  os.listdir('data/files')
+        #print(saved_files)           
         for file in saved_files:
             rowPosition = self.ui.filesList.rowCount()
             self.ui.filesList.insertRow(rowPosition)

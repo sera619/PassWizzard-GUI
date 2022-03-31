@@ -3,6 +3,9 @@
     <file>JABBA-THE-FONT.REGULAR.TTF</file>
     <file>billy-argel-font.regular.ttf</file>
   </qresource>
+  <qresource prefix="img">
+    <file>triple-lock.png</file>
+  </qresource>
   <qresource prefix="icons">
     <file>assets/icons/activity.png</file>
     <file>assets/icons/airplay.png</file>
