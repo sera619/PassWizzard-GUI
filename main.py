@@ -7,14 +7,14 @@ import sys
 from PySide6.QtGui import *
 from PySide6.QtCore import *
 from PySide6.QtWidgets import *
-from ui_gui import Ui_MainWindow
+from new_ui_gui import Ui_MainWindow
 from qt_material import apply_stylesheet
 from PySide6 import *
 from styles import *
 from PassManager import  PasswordManager
 
 
-version = "1.0.1"
+version = "1.1.3"
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -45,9 +45,11 @@ class MainWindow(QMainWindow):
 
         # button events
         self.ui.min_btn.clicked.connect(lambda: self.showMinimized())
-        self.ui.max_btn.clicked.connect(lambda: self.keyErrorBox('nokey'))
+        #self.ui.max_btn.clicked.connect(lambda: self.keyErrorBox('nokey'))
+        self.ui.firstkey_btn.clicked.connect(lambda: self.firstKey(self.ui.firstkey_input.text()))
         self.ui.x_btn.clicked.connect(lambda: self.close())
         self.ui.menu_btn.clicked.connect(lambda: self.menuAnim())
+        self.ui.help_btn.clicked.connect(lambda: self.ui.stackWidget.setCurrentWidget(self.ui.help_site))
         # sociel button events
         self.ui.yt_btn.clicked.connect(lambda: webbrowser.open('https://www.youtube.com/channel/UCJLXwZV5Kk4XRF6TSY_iPgQ'))
         self.ui.codepen_btn.clicked.connect(lambda: webbrowser.open('https://codepen.io/sera619'))
@@ -71,8 +73,12 @@ class MainWindow(QMainWindow):
         self.ui.create_key_btn.clicked.connect(lambda: self.createNewKey(self.ui.keyname_input.text()))
         self.ui.create_pass_btn.clicked.connect(lambda: self.createNewEntry())
         
+        
+        
+        
         self.loadFiles()
         self.loadKeys()
+
 
         for w in self.ui.frame_5.findChildren(QPushButton):
             w.font().setFamily('JABBA-THE-FONT.REGULAR.TTF')
@@ -92,16 +98,24 @@ class MainWindow(QMainWindow):
     def keyErrorBox(self):        
         box = NoKeyDialog(self)
         if box.exec():
-            self.ui.stackWidget.setCurrentWidget(self.ui.createKeys_site)
+            self.ui.stackWidget.setCurrentWidget(self.ui.firstkey_site)
         else:
             sys.exit(app.exec())    
     
+    
+    def firstKey(self, keyname):
+        if self.ui.firstkey_input.text == "":
+            self.ui.firstkey_label.setText('ERROR: Please enter a keyname!')
+        else:
+            PM.createKey(keyname)
+            self.ui.firstkey_label.setText('Key created! Click menu to continue.')
+        self.loadKeys()
     
         
     def initCheck(self):
         saved_keys = os.listdir('data/keys')
         saved_files = os.listdir('data/files')
-        if saved_keys == [] or saved_files == []:
+        if saved_keys == []:
             self.keyErrorBox()
     
     
@@ -110,6 +124,10 @@ class MainWindow(QMainWindow):
         self.ui.get_key_input.clear()
         self.ui.files_key_input.clear()
         self.ui.select_key.clear()
+        saved_keys = os.listdir('data/keys')
+        saved_files = os.listdir('data/files')
+        if saved_keys == [] or saved_files == []:
+            pass        
         for o in obj:
             self.ui.get_key_input.addItem(o)
             self.ui.files_key_input.addItem(o)
@@ -119,6 +137,10 @@ class MainWindow(QMainWindow):
     def create_passBox_item(self, obj):
         self.ui.get_file_input.clear()
         self.ui.select_file.clear()
+        saved_keys = os.listdir('data/keys')
+        saved_files = os.listdir('data/files')
+        if saved_keys == [] or saved_files == []:
+            pass   
         for o in obj:
             self.ui.get_file_input.addItem(o)
             self.ui.select_file.addItem(o)

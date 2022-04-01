@@ -33,7 +33,7 @@ class NoKeyDialog(QDialog):
         self.buttonBox.rejected.connect(self.reject)
         self.layout = QVBoxLayout()
         
-        message = QLabel("P455W1ZZ4RD cant find a Key/File\n\nP455W1ZZ4RD needs a key/file to work.\nPlease create a key first.\n\n")
+        message = QLabel("\nP455W1ZZ4RD needs a key to work.\nPlease create a key first.\n\n")
         self.layout.addWidget(message)
         self.layout.addWidget(self.buttonBox)
         self.setLayout(self.layout)
