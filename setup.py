@@ -5,7 +5,7 @@ import sys, os
 files = ['favicon.ico','triple-lock.png']
 option = {
     'include_files': files,
-    'optimize':2,
+    'optimize':1,
 }
 
 target = Executable(script='main.py',
@@ -16,7 +16,7 @@ target = Executable(script='main.py',
                     shortcut_name='P455W1ZZ4RD')
 
 setup(name="P455W1ZZ4RD",
-      version='1.0.1',
+      version='1.1.3',
       description="A simple password manager",
       author="S3R43o3",
       options = {'build_exe': option},
