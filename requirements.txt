@@ -1,6 +1,6 @@
 cffi==1.15.0
 click==7.1.2
-cryptography==41.0.6
+cryptography==42.0.4
 importlib-metadata==4.11.3
 importlib-resources==5.4.0
 Jinja2==3.1.1
