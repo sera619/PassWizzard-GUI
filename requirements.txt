@@ -16,4 +16,4 @@ qt-material==2.10
 qt6-applications==6.1.0.2.2
 qt6-tools==6.1.0.1.2
 shiboken6==6.2.4
-zipp==3.7.0
+zipp==3.19.1
